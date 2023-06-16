@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loulou's Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #121212;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .chart-container {
+      width: 500px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Loulou's Graph</h1>
+  
+  <div class="chart-container">
+    <h2>Why Loulou's Shop is the Best:</h2>
+    <ul>
+      <li>High-quality products</li>
+      <li>Wide variety of options</li>
+      <li>Exceptional customer service</li>
+      <li>Competitive prices</li>
+      <li>Fast and reliable shipping</li>
+    </ul>
+    
+    <h2>Customer Satisfaction Chart:</h2>
+    <canvas id="customer-satisfaction-chart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Generate random data for the chart between 76 and 100
+    function generateRandomData() {
+      return Math.floor(Math.random() * 25) + 76;
+    }
+
+    // Create the chart
+    var ctx = document.getElementById('customer-satisfaction-chart').getContext('2d');
+    var chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Quality', 'Variety', 'Service', 'Price', 'Shipping'],
+        datasets: [{
+          label: 'Customer Satisfaction',
+          data: [
+            generateRandomData(),
+            generateRandomData(),
+            generateRandomData(),
+            generateRandomData(),
+            generateRandomData()
+          ],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(153, 102, 255, 0.6)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(153, 102, 255, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: false,
+            max: 100,
+            title: {
+              display: true,
+              text: 'Percentage'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
